@@ -1,0 +1,51 @@
+extends layout 
+
+block content 
+    h1 Library: #{library.name} 
+
+    div(style='margin-left:20px;margin-top:20px')
+
+        h4 Book Copies
+
+        //- p Books #{bookinstance_list}
+        //- p Authors #{author_list}
+
+        //- each author in author_list 
+        //-     p Author: #{author._id}
+        //-     each val in bookinstance_list 
+        //-         if author._id==val.book.author
+        //-             p Author: #{author.family_name}, #{author.first_name}
+        //- each val in bookinstance_list 
+        //-     p Instance: #{val.book.author}
+        //-     if val.book.author==author_list._id
+        //-         p success
+        ul 
+            -let usedAuthors = []
+                each val in bookinstance_list
+
+           
+                    - 
+                        if(!usedAuthors.includes(val.book.author)){
+                        usedAuthors.push(val.book.author)}
+                        console.log(usedAuthors)
+
+            each auth in usedAuthors 
+                li 
+                    a(href=auth.url) #{auth.family_name}, #{auth.first_name}
+
+                    ul 
+                        each val in bookinstance_list
+                            if val.book.author == auth 
+                                li 
+                                    a(href=val.url) #{val.book.title} : #{val.imprint} -
+                                    if val.status=='Available'
+                                        span.text-success #{val.status} 
+                                    else if val.status=='Maintenance'
+                                        span.text-danger #{val.status} 
+                                    else 
+                                        span.text-warning #{val.status} 
+                                    if val.status!='Available'
+                                        span (Due: #{val.due_back_formatted} )
+
+            else 
+                li There are no book copies in this library.

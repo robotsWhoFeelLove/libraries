@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Library Collection], a very basic Express website based on the Mozilla Developer Network library tutorial.
+
+  p In addition to Mozilla's sample library, this one adds the ability to create separate libraries to find books someone you know may have.
+
+  h1 Dynamic content
+
+  p The library has the following record counts:
+
+  ul
+    li #[strong Libraries:] !{library_count}
+    li #[strong Books:] !{book_count}
+    li #[strong Copies:] !{book_instance_count}
+    li #[strong Copies available:] !{book_instance_available_count}
+    li #[strong Authors:] !{author_count}
+    li #[strong Genres:] !{genre_count}
