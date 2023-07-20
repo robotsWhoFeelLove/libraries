@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 const BookInstanceSchema = new Schema({
   book: { type: Schema.Types.ObjectId, ref: "Book", required: true }, // reference to the associated book
-  library: {type: Schema.Types.ObjectId, ref: "Library", required: false}, //false for time being until data is updated.
-  imprint: { type: String, required: true },
+  library: {type: Schema.Types.ObjectId, ref: "Library", required: false}, //false for time being until data is
+  // imprint: { type: String, required: true },
   status: {
     type: String,
     required: true,
