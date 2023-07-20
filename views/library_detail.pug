@@ -37,7 +37,7 @@ block content
                         each val in bookinstance_list
                             if val.book.author == auth 
                                 li 
-                                    a(href=val.url) #{val.book.title} : #{val.imprint} -
+                                    a(href=val.url) #{val.book.title} 
                                     if val.status=='Available'
                                         span.text-success #{val.status} 
                                     else if val.status=='Maintenance'

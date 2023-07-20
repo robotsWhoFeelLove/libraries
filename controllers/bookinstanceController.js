@@ -49,10 +49,10 @@ exports.bookinstance_create_get = asyncHandler(async (req, res, next) => {
 // Handle BookInstance create on POST.
 exports.bookinstance_create_post = [
     body("book", "Book must be specified").trim().isLength({ min: 1}).escape(),
-        body("imprint", "Imprint must be specified")
-            .trim()
-            .isLength({ min: 1 })
-            .escape(),
+        // body("imprint", "Imprint must be specified")
+        //     .trim()
+        //     .isLength({ min: 1 })
+        //     .escape(),
         body("status").escape(),
         body("due_back", "Invalid date")
             .optional({ values: "falsy"})
@@ -65,7 +65,7 @@ exports.bookinstance_create_post = [
             const bookInstance = new BookInstance({
                 book: req.body.book,
                 library: req.body.library,
-                imprint: req.body.imprint,
+                // imprint: req.body.imprint,
                 status: req.body.status,
                 due_back: req.body.due_back,
             });
@@ -155,10 +155,10 @@ exports.bookinstance_update_get = asyncHandler(async (req, res, next) => {
 
 exports.bookinstance_update_post = [
     body("book", "Book must be specified").trim().isLength({ min: 1}).escape(),
-        body("imprint", "Imprint must be specified")
-            .trim()
-            .isLength({ min: 1 })
-            .escape(),
+        // body("imprint", "Imprint must be specified")
+        //     .trim()
+        //     .isLength({ min: 1 })
+        //     .escape(),
         body("status").escape(),
         body("due_back", "Invalid date")
             .optional({ values: "falsy"})
@@ -171,7 +171,7 @@ exports.bookinstance_update_post = [
             const bookInstance = new BookInstance({
                 book: req.body.book,
                 library: req.body.library,
-                imprint: req.body.imprint,
+                // imprint: req.body.imprint,
                 status: req.body.status,
                 due_back: req.body.due_back,
                 _id: req.params.id,

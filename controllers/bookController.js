@@ -100,8 +100,8 @@ req.body.genre = [];
         .trim()
         .isLength({ min: 1 })
         .escape(),
-        body("isbn", "ISBN must not be empty").trim().isLength({
-    min: 1 }).escape(),
+    //     body("isbn", "ISBN must not be empty").trim().isLength({
+    // min: 1 }).escape(),
         body("genre.*").escape(),
 
         asyncHandler(async (req,res,next) => {

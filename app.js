@@ -21,7 +21,7 @@ const limiter = RateLimit({
   max: 20,
 });
 // Apply rate limiter to all requests
-app.use(limiter);
+// app.use(limiter);
 // Add helmet to the middleware chain.
 // Set CSP headers to allow our Bootstrap and Jquery to be served
 app.use(
