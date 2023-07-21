@@ -21,13 +21,28 @@ block content
         //-         p success
         ul 
             -let usedAuthors = []
+            
                 each val in bookinstance_list
 
            
                     - 
                         if(!usedAuthors.includes(val.book.author)){
-                        usedAuthors.push(val.book.author)}
-                        console.log(usedAuthors)
+                            usedAuthors.push(val.book.author)
+                            usedAuthors.sort((a, b) => {
+                                let fa = a.family_name.toLowerCase(),
+                                    fb = b.family_name.toLowerCase();
+
+                                if (fa < fb) {
+                                    return -1;
+                                }
+                                if (fa > fb) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                            }
+                            
+                        
 
             each auth in usedAuthors 
                 li 
